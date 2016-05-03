@@ -18,7 +18,10 @@ import org.uma.jmetal.algorithm.multiobjective.nsgaii.NSGAIIBuilder;
 import org.uma.jmetal.operator.impl.crossover.SBXCrossover;
 import org.uma.jmetal.operator.impl.mutation.PolynomialMutation;
 import org.uma.jmetal.problem.Problem;
+import org.uma.jmetal.problem.multiobjective.Binh2;
+import org.uma.jmetal.problem.multiobjective.cec2010.C01;
 import org.uma.jmetal.problem.multiobjective.zdt.*;
+import org.uma.jmetal.problem.singleobjective.Griewank;
 import org.uma.jmetal.qualityindicator.impl.*;
 import org.uma.jmetal.qualityindicator.impl.hypervolume.PISAHypervolume;
 import org.uma.jmetal.solution.DoubleSolution;
@@ -54,20 +57,19 @@ import java.util.List;
  * @author Antonio J. Nebro <antonio@lcc.uma.es>
  */
 public class NSGAIIStudy  {
-  private static final int INDEPENDENT_RUNS = 25 ;
+  private static final int INDEPENDENT_RUNS = 5 ;
 
   public static void main(String[] args) throws IOException {
-    if (args.length != 1) {
-      throw new JMetalException("Missing argument: experiment base directory") ;
-    }
-    String experimentBaseDirectory = args[0] ;
+//    if (args.length != 1) {
+//      throw new JMetalException("Missing argument: experiment base directory") ;
+//    }
+    String experimentBaseDirectory = "./Experiments" ;
 
-    List<Problem<DoubleSolution>> problemList = Arrays.<Problem<DoubleSolution>>asList(new ZDT1(), new ZDT2(),
-        new ZDT3(), new ZDT4(), new ZDT6()) ;
+    List<Problem<DoubleSolution>> problemList = Arrays.<Problem<DoubleSolution>>asList(new Griewank(30)) ;
 
     List<TaggedAlgorithm<List<DoubleSolution>>> algorithmList = configureAlgorithmList(problemList, INDEPENDENT_RUNS) ;
 
-    List<String> referenceFrontFileNames = Arrays.asList("ZDT1.pf", "ZDT2.pf", "ZDT3.pf", "ZDT4.pf", "ZDT6.pf") ;
+    List<String> referenceFrontFileNames = Arrays.asList("Griew.pf") ;
 
     Experiment<DoubleSolution, List<DoubleSolution>> experiment =
         new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>("NSGAIIStudy")
@@ -87,11 +89,12 @@ public class NSGAIIStudy  {
             .build();
 
     new ExecuteAlgorithms<>(experiment).run();
-    new ComputeQualityIndicators<>(experiment).run() ;
-    new GenerateLatexTablesWithStatistics(experiment).run() ;
-    new GenerateWilcoxonTestTablesWithR<>(experiment).run() ;
-    new GenerateFriedmanTestTables<>(experiment).run();
-    new GenerateBoxplotsWithR<>(experiment).setRows(3).setColumns(3).run() ;
+//    new GenerateReferenceParetoFront(experiment).run();
+//    new ComputeQualityIndicators<>(experiment).run() ;
+//    new GenerateLatexTablesWithStatistics(experiment).run() ;
+//    new GenerateWilcoxonTestTablesWithR<>(experiment).run() ;
+//    new GenerateFriedmanTestTables<>(experiment).run();
+//    new GenerateBoxplotsWithR<>(experiment).setRows(3).setColumns(3).run() ;
   }
 
   /**
