@@ -18,17 +18,14 @@ import org.uma.jmetal.algorithm.multiobjective.nsgaii.NSGAIIBuilder;
 import org.uma.jmetal.operator.impl.crossover.SBXCrossover;
 import org.uma.jmetal.operator.impl.mutation.PolynomialMutation;
 import org.uma.jmetal.problem.Problem;
-import org.uma.jmetal.problem.multiobjective.Binh2;
-import org.uma.jmetal.problem.multiobjective.cec2010.C01;
-import org.uma.jmetal.problem.multiobjective.zdt.*;
 import org.uma.jmetal.problem.singleobjective.Griewank;
 import org.uma.jmetal.qualityindicator.impl.*;
 import org.uma.jmetal.qualityindicator.impl.hypervolume.PISAHypervolume;
 import org.uma.jmetal.solution.DoubleSolution;
-import org.uma.jmetal.util.JMetalException;
 import org.uma.jmetal.util.experiment.Experiment;
 import org.uma.jmetal.util.experiment.ExperimentBuilder;
-import org.uma.jmetal.util.experiment.component.*;
+import org.uma.jmetal.util.experiment.component.ExecuteAlgorithms;
+import org.uma.jmetal.util.experiment.component.GenerateReferenceParetoFront;
 import org.uma.jmetal.util.experiment.util.TaggedAlgorithm;
 
 import java.io.IOException;
@@ -89,7 +86,7 @@ public class NSGAIIStudy  {
             .build();
 
     new ExecuteAlgorithms<>(experiment).run();
-//    new GenerateReferenceParetoFront(experiment).run();
+    new GenerateReferenceParetoFront(experiment).run();
 //    new ComputeQualityIndicators<>(experiment).run() ;
 //    new GenerateLatexTablesWithStatistics(experiment).run() ;
 //    new GenerateWilcoxonTestTablesWithR<>(experiment).run() ;

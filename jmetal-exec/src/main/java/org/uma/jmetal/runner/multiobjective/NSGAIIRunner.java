@@ -14,6 +14,7 @@
 package org.uma.jmetal.runner.multiobjective;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.multiobjective.ca.CABuilder;
 import org.uma.jmetal.algorithm.multiobjective.nsgaii.NSGAIIBuilder;
 import org.uma.jmetal.operator.CrossoverOperator;
 import org.uma.jmetal.operator.MutationOperator;
@@ -21,6 +22,7 @@ import org.uma.jmetal.operator.SelectionOperator;
 import org.uma.jmetal.operator.impl.crossover.SBXCrossover;
 import org.uma.jmetal.operator.impl.mutation.PolynomialMutation;
 import org.uma.jmetal.operator.impl.selection.BinaryTournamentSelection;
+import org.uma.jmetal.problem.DoubleProblem;
 import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.runner.AbstractAlgorithmRunner;
 import org.uma.jmetal.solution.DoubleSolution;
@@ -61,8 +63,8 @@ public class NSGAIIRunner extends AbstractAlgorithmRunner {
       problemName = args[0] ;
       referenceParetoFront = args[1] ;
     } else {
-      problemName = "org.uma.jmetal.problem.multiobjective.cec2010.C01";
-      referenceParetoFront = "jmetal-problem/src/test/resources/pareto_fronts/C01.pf" ;
+      problemName = "org.uma.jmetal.problem.multiobjective.zdt.ZDT1";
+      referenceParetoFront = "jmetal-problem/src/test/resources/pareto_fronts/ZDT1.pf" ;
     }
 
     problem = ProblemUtils.<DoubleSolution> loadProblem(problemName);
@@ -83,11 +85,28 @@ public class NSGAIIRunner extends AbstractAlgorithmRunner {
         .setPopulationSize(100)
         .build() ;
 
+
     AlgorithmRunner algorithmRunner = new AlgorithmRunner.Executor(algorithm)
-        .execute() ;
+            .execute() ;
 
     List<DoubleSolution> population = algorithm.getResult() ;
     long computingTime = algorithmRunner.getComputingTime() ;
+
+    JMetalLogger.logger.info("Total execution time: " + computingTime + "ms");
+
+    printFinalSolutionSet(population);
+    if (!referenceParetoFront.equals("")) {
+      printQualityIndicators(population, referenceParetoFront) ;
+    }
+
+
+    algorithm = new CABuilder((DoubleProblem)problem, 25000, 100).build();
+
+    algorithmRunner = new AlgorithmRunner.Executor(algorithm)
+        .execute() ;
+
+    population = algorithm.getResult() ;
+    computingTime = algorithmRunner.getComputingTime() ;
 
     JMetalLogger.logger.info("Total execution time: " + computingTime + "ms");
 

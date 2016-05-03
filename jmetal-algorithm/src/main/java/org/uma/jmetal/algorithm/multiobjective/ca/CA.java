@@ -21,7 +21,7 @@
 
 //package jmetal.metaheuristics.CulturalAlgorithm;
 
-package algorithm;
+package org.uma.jmetal.algorithm.multiobjective.ca;
 
 
 import org.uma.jmetal.algorithm.impl.AbstractEvolutionStrategy;
@@ -32,7 +32,9 @@ import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.solution.DoubleSolution;
 import org.uma.jmetal.util.SolutionListUtils;
 import org.uma.jmetal.util.SolutionUtils;
-import util.DominanceRandomOs;
+import org.uma.jmetal.util.comparator.RankingAndCrowdingDistanceComparator;
+import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
+import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -42,15 +44,16 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+
 /**
  * Implementation of the Cultural Algorithm.
  */
 
-public class CulturalAlgorithm extends AbstractEvolutionStrategy<DoubleSolution, List<DoubleSolution>> {
+public class CA extends AbstractEvolutionStrategy<DoubleSolution, List<DoubleSolution>> {
 
 
-    private final Comparator<DoubleSolution> comparator = new DominanceRandomOs(3);
-
+    private final Comparator<DoubleSolution> comparator = new RankingAndCrowdingDistanceComparator<>();
+    protected final SolutionListEvaluator<DoubleSolution> evaluator = new SequentialSolutionListEvaluator<>();
     private int maxEvaluations;
     private int evaluations = 0;
 
@@ -62,7 +65,7 @@ public class CulturalAlgorithm extends AbstractEvolutionStrategy<DoubleSolution,
 
     private final SelectionOperator<List<DoubleSolution>, DoubleSolution> selectionOperator = new BinaryTournamentSelection<>(comparator);
 
-    public CulturalAlgorithm(int maxEvaluations, int maxPopulationSize, DoubleProblem problem) {
+    public CA(int maxEvaluations, int maxPopulationSize, DoubleProblem problem) {
         super(problem);
         this.maxEvaluations = maxEvaluations;
 
@@ -188,8 +191,7 @@ public class CulturalAlgorithm extends AbstractEvolutionStrategy<DoubleSolution,
 
 
     protected List<DoubleSolution> evaluatePopulation(List<DoubleSolution> population) {
-        Problem<DoubleSolution> p = getProblem();
-        population.forEach(p::evaluate);
+        population = evaluator.evaluate(population, getProblem());
         return population;
     }
 

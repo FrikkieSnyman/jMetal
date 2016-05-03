@@ -56,7 +56,7 @@ public class NSGAIIIRunner extends AbstractAlgorithmRunner {
    */
   public static void main(String[] args) throws JMetalException {
 	    Problem<DoubleSolution> problem;
-	    Algorithm<List<DoubleSolution>> algorithm;
+      Algorithm<List<DoubleSolution>> algorithm;
 	    CrossoverOperator<DoubleSolution> crossover;
 	    MutationOperator<DoubleSolution> mutation;
 	    SelectionOperator<List<DoubleSolution>, DoubleSolution> selection;
