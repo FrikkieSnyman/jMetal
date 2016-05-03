@@ -32,6 +32,7 @@ import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.solution.DoubleSolution;
 import org.uma.jmetal.util.SolutionListUtils;
 import org.uma.jmetal.util.SolutionUtils;
+import org.uma.jmetal.util.comparator.DominanceComparator;
 import org.uma.jmetal.util.comparator.RankingAndCrowdingDistanceComparator;
 import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
 import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
@@ -52,13 +53,13 @@ import java.util.stream.IntStream;
 public class CA extends AbstractEvolutionStrategy<DoubleSolution, List<DoubleSolution>> {
 
 
-    private final Comparator<DoubleSolution> comparator = new RankingAndCrowdingDistanceComparator<>();
+    private final Comparator<DoubleSolution> comparator = new DominanceComparator<>(3);
     protected final SolutionListEvaluator<DoubleSolution> evaluator = new SequentialSolutionListEvaluator<>();
     private int maxEvaluations;
     private int evaluations = 0;
 
     private BeliefSpace belief;
-    private final double acceptancePercent = 0.10;
+    private final double acceptancePercent = 0.5;
     private int acceptanceCount;
 
     private static Random random = new Random();
@@ -191,7 +192,8 @@ public class CA extends AbstractEvolutionStrategy<DoubleSolution, List<DoubleSol
 
 
     protected List<DoubleSolution> evaluatePopulation(List<DoubleSolution> population) {
-        population = evaluator.evaluate(population, getProblem());
+        Problem<DoubleSolution> p = getProblem();
+        population.forEach(p::evaluate);
         return population;
     }
 
