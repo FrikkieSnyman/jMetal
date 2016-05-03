@@ -62,7 +62,7 @@ public class TwoBarTruss extends AbstractDoubleProblem implements ConstrainedPro
         double sigma1 = (20 * Math.sqrt(16 + Math.pow((x3), 2))) / (x1 * x3);
         double sigma2 = (80 * Math.sqrt(1 + Math.pow((x3), 2))) / (x2 * x3);
 
-        constraint[0] = Math.max(sigma1, sigma2) + Math.pow(10, 5);
+        constraint[0] = Math.pow(10, 5) - Math.max(sigma1, sigma2);
 
         double overallConstraintViolation = 0.0;
         int violatedConstraints = 0;
