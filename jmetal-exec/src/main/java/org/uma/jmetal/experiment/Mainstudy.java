@@ -36,9 +36,9 @@ public class Mainstudy {
     private static final int INDEPENDENT_RUNS = 30;
 
     public static void main(String[] args) throws IOException {
-        if (args.length != 1) {
-            throw new JMetalException("Missing argument: experiment base directory") ;
-        }
+//        if (args.length != 1) {
+//            throw new JMetalException("Missing argument: experiment base directory");
+//        }
         String experimentBaseDirectory = args[0] ;
         List<Problem<DoubleSolution>> problemList = null;
         int objectiveFunctions = 2;
