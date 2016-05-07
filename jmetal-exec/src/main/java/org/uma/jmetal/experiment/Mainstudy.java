@@ -52,8 +52,8 @@ public class Mainstudy {
 
         List<TaggedAlgorithm<List<DoubleSolution>>> algorithmList = configureAlgorithmList(problemList, INDEPENDENT_RUNS) ;
 
-        List<String> referenceFrontFileNames = asList("Binh2Penalty.pf","Osyczka2Penalty.pf","SrinivasPenalty.pf","TanakaPenalty.pf","TwoBarTrussPenalty.pf","WeldedBeamPenalty.pf",
-                "Binh2.pf", "Osyczka2.pf", "Shrinivas.pf", "Tanaka.pf", "TwoBarTruss.pf", "WeldedBeam.pf");
+        List<String> referenceFrontFileNames = asList("Binh2.pf", "Osyczka2.pf", "Shrinivas.pf", "Tanaka.pf", "TwoBarTruss.pf", "WeldedBeam.pf",
+                "Binh2Penalty.pf","Osyczka2Penalty.pf","SrinivasPenalty.pf","TanakaPenalty.pf","TwoBarTrussPenalty.pf","WeldedBeamPenalty.pf");
 
         Experiment<DoubleSolution, List<DoubleSolution>> experiment =
                 new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>("COS701 Assignment 3 Study Penalty")
@@ -98,7 +98,7 @@ public class Mainstudy {
         for (int run = 0; run < independentRuns; run++) {
             // Paramaters are set from
 
-            for (int i = 0; i < problemList.size(); i++) {
+            /*for (int i = 0; i < problemList.size(); i++) {
                 Algorithm<List<DoubleSolution>> algorithm = new NSGAIIBuilder<>(problemList.get(i), new SBXCrossover(0.8, 5),
                         new PolynomialMutation(1.0 / problemList.get(i).getNumberOfVariables(), 10.0))
                         .setMaxEvaluations(5000)
@@ -125,7 +125,7 @@ public class Mainstudy {
                         .setMutationOperator(new PolynomialMutation())
                         .build();
                 algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "PAES", problemList.get(i), run));
-            }
+            }*/
 
             for (int i = 0; i < problemList.size(); i++) {
                 Algorithm<List<DoubleSolution>> algorithm = new CABuilder<>((DoubleProblem) problemList.get(i), 5000, 20)

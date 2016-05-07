@@ -81,11 +81,9 @@ public class CA extends AbstractEvolutionStrategy<DoubleSolution, List<DoubleSol
         int numberOfVariables = problem.getNumberOfVariables();
         double[] maxsteps = IntStream.range(0, numberOfVariables)
                 .mapToDouble(j -> norm.upper[j]- norm.lower[j]).toArray();
-
         DoubleSolution situationalSolution = belief.situational[evaluations];
         double[] sitVariables = IntStream.range(0, numberOfVariables).
                 mapToDouble(situationalSolution::getVariableValue).toArray();
-
         Function<DoubleSolution, DoubleSolution> mutate = (parent) -> {
             DoubleSolution offspring = (DoubleSolution) parent.copy();
             for (int j=0; j<numberOfVariables; j++) {
@@ -218,7 +216,7 @@ public class CA extends AbstractEvolutionStrategy<DoubleSolution, List<DoubleSol
     public void run() {
         super.run();
         this.belief = null;
-        this.random = null;
+        //this.random = null;
         System.gc();
     }
 
