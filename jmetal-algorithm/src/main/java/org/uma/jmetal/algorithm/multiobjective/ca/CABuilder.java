@@ -43,6 +43,7 @@ package org.uma.jmetal.algorithm.multiobjective.ca;
 
 import org.uma.jmetal.operator.MutationOperator;
 import org.uma.jmetal.problem.DoubleProblem;
+import org.uma.jmetal.solution.DoubleSolution;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.AlgorithmBuilder;
 
@@ -54,7 +55,7 @@ public class CABuilder<S extends Solution<?>>  implements AlgorithmBuilder<CA> {
 
     private int maxEvaluations;
     private int maxPopSize;
-    private MutationOperator<S> mutationOperator;
+    private MutationOperator<DoubleSolution> mutationOperator;
 
     public CABuilder(DoubleProblem problem, int maxEvaluations, int maxPopulationSize) {
         this.maxEvaluations = maxEvaluations;
@@ -69,7 +70,7 @@ public class CABuilder<S extends Solution<?>>  implements AlgorithmBuilder<CA> {
     }
 
 
-    public CABuilder<S> setMutationOperator(MutationOperator<S> mutation) {
+    public CABuilder<S> setMutationOperator(MutationOperator<DoubleSolution> mutation) {
         mutationOperator = mutation;
 
         return this;
@@ -92,7 +93,7 @@ public class CABuilder<S extends Solution<?>>  implements AlgorithmBuilder<CA> {
         return maxEvaluations;
     }
 
-    public MutationOperator<S> getMutationOperator() {
+    public MutationOperator<DoubleSolution> getMutationOperator() {
         return mutationOperator;
     }
 }
