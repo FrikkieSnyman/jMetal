@@ -56,12 +56,12 @@ public class Osyczka2Penalty extends AbstractDoubleProblem implements Constraine
         x6 = solution.getVariableValue(5);
 
         double[] constraint = new double[this.getNumberOfConstraints()];
-        constraint[0] = (x1 + x2)/2.0 - 1.0;
-        constraint[1] = (6.0 - x1 - x2)/6.0;
-        constraint[2] = (2.0 - x2 + x1)/2.0;
-        constraint[3] = (2.0 - x1 + 3.0*x2)/2.0;
-        constraint[4] = (4.0 - (x3-3.0)*(x3-3.0) - x4)/4.0;
-        constraint[5] = ((x5-3.0)*(x5-3.0) +x6 - 4.0)/4.0;
+        constraint[0] = (x1 + x2) - 2.0;
+        constraint[1] = (6.0 - x1 - x2);
+        constraint[2] = (2.0 - x2 + x1);
+        constraint[3] = (2.0 - x1 + 3.0*x2);
+        constraint[4] = (4.0 - (x3-3.0)*(x3-3.0) - x4);
+        constraint[5] = ((x5-3.0)*(x5-3.0) +x6 - 4.0);
 
         double c1 = Math.max(0, Math.pow(constraint[0], alpha));
         double c2 = Math.max(0, Math.pow(constraint[1], alpha));
@@ -95,12 +95,12 @@ public class Osyczka2Penalty extends AbstractDoubleProblem implements Constraine
         x5 = solution.getVariableValue(4);
         x6 = solution.getVariableValue(5);
 
-        constraint[0] = (x1 + x2)/2.0 - 1.0;
-        constraint[1] = (6.0 - x1 - x2)/6.0;
-        constraint[2] = (2.0 - x2 + x1)/2.0;
-        constraint[3] = (2.0 - x1 + 3.0*x2)/2.0;
-        constraint[4] = (4.0 - (x3-3.0)*(x3-3.0) - x4)/4.0;
-        constraint[5] = ((x5-3.0)*(x5-3.0) +x6 - 4.0)/4.0;
+        constraint[0] = (x1 + x2) - 2.0;
+        constraint[1] = (6.0 - x1 - x2);
+        constraint[2] = (2.0 - x2 + x1);
+        constraint[3] = (2.0 - x1 + 3.0*x2);
+        constraint[4] = (4.0 - (x3-3.0)*(x3-3.0) - x4);
+        constraint[5] = ((x5-3.0)*(x5-3.0) +x6 - 4.0);
 
         double overallConstraintViolation = 0.0;
         int violatedConstraints = 0;

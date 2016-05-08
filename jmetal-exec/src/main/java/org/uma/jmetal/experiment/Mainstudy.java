@@ -39,9 +39,8 @@ public class Mainstudy {
 //        if (args.length != 1) {
 //            throw new JMetalException("Missing argument: experiment base directory");
 //        }
-        String experimentBaseDirectory = args[0] ;
+        String experimentBaseDirectory = "./Experiments" ;
         List<Problem<DoubleSolution>> problemList = null;
-        int objectiveFunctions = 2;
         try {
             problemList = Arrays.<Problem<DoubleSolution>>asList(new Binh2Penalty(), new Osyczka2Penalty(), new SrinivasPenalty(), new TanakaPenalty(), new TwoBarTrussPenalty(), new WeldedBeamPenalty(),
                     new Binh2(), new Osyczka2(), new Srinivas(), new Tanaka(), new TwoBarTruss(), new WeldedBeam());
@@ -62,14 +61,14 @@ public class Mainstudy {
                         .setExperimentBaseDirectory(experimentBaseDirectory)
                         .setOutputParetoFrontFileName("FUN")
                         .setOutputParetoSetFileName("VAR")
-                        .setReferenceFrontDirectory("/pareto_fronts")
+                        .setReferenceFrontDirectory("pareto_fronts")
                         .setReferenceFrontFileNames(referenceFrontFileNames)
                         .setIndicatorList(asList(
                                 new Epsilon<DoubleSolution>(), new Spread<DoubleSolution>(), new GenerationalDistance<DoubleSolution>(),
                                 new PISAHypervolume<DoubleSolution>(),
                                 new InvertedGenerationalDistance<DoubleSolution>(), new InvertedGenerationalDistancePlus<DoubleSolution>()))
                         .setIndependentRuns(INDEPENDENT_RUNS)
-                        .setNumberOfCores(1)
+                        .setNumberOfCores(4)
                         .build();
 
         new ExecuteAlgorithms<>(experiment).run();
@@ -98,7 +97,7 @@ public class Mainstudy {
         for (int run = 0; run < independentRuns; run++) {
             // Paramaters are set from
 
-            /*for (int i = 0; i < problemList.size(); i++) {
+            for (int i = 0; i < problemList.size(); i++) {
                 Algorithm<List<DoubleSolution>> algorithm = new NSGAIIBuilder<>(problemList.get(i), new SBXCrossover(0.8, 5),
                         new PolynomialMutation(1.0 / problemList.get(i).getNumberOfVariables(), 10.0))
                         .setMaxEvaluations(5000)
@@ -125,14 +124,14 @@ public class Mainstudy {
                         .setMutationOperator(new PolynomialMutation())
                         .build();
                 algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "PAES", problemList.get(i), run));
-            }*/
+            }
 
-            for (int i = 0; i < problemList.size(); i++) {
+            /*for (int i = 0; i < problemList.size(); i++) {
                 Algorithm<List<DoubleSolution>> algorithm = new CABuilder<>((DoubleProblem) problemList.get(i), 5000, 20)
                         .setMutationOperator(new PolynomialMutation())
                         .build();
                 algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "CA", problemList.get(i), run));
-            }
+            }*/
 
 
         }

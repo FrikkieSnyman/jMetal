@@ -58,7 +58,7 @@ public class TanakaPenalty extends AbstractDoubleProblem implements ConstrainedP
         List<Double> upperLimit = new ArrayList<>(getNumberOfVariables()) ;
 
         for (int i = 0; i < getNumberOfVariables(); i++) {
-            lowerLimit.add(10e-5);
+            lowerLimit.add(0.0);
             upperLimit.add(Math.PI);
         }
 
@@ -77,7 +77,7 @@ public class TanakaPenalty extends AbstractDoubleProblem implements ConstrainedP
         double[] constraint = new double[this.getNumberOfConstraints()];
 
         constraint[0] = (x1 * x1 + x2 * x2 - 1.0 - 0.1 * Math.cos(16.0 * Math.atan(x1 / x2)));
-        constraint[1] = -2.0 * ((x1 - 0.5) * (x1 - 0.5) + (x2 - 0.5) * (x2 - 0.5) - 0.5);
+        constraint[1] = ((x1 - 0.5) * (x1 - 0.5) + (x2 - 0.5) * (x2 - 0.5) - 0.5);
 
         double c1 = Math.max(0, Math.pow(constraint[0], alpha));
         double c2 = Math.max(0, Math.pow(constraint[1], alpha));
@@ -96,7 +96,7 @@ public class TanakaPenalty extends AbstractDoubleProblem implements ConstrainedP
         double x2 = solution.getVariableValue(1) ;
 
         constraint[0] = (x1 * x1 + x2 * x2 - 1.0 - 0.1 * Math.cos(16.0 * Math.atan(x1 / x2)));
-        constraint[1] = -2.0 * ((x1 - 0.5) * (x1 - 0.5) + (x2 - 0.5) * (x2 - 0.5) - 0.5);
+        constraint[1] = ((x1 - 0.5) * (x1 - 0.5) + (x2 - 0.5) * (x2 - 0.5) - 0.5);
 
         double overallConstraintViolation = 0.0;
         int violatedConstraints = 0;
