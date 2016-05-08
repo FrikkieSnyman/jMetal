@@ -7,13 +7,18 @@ fileSteadyStateNSGAII<-paste(fileSteadyStateNSGAII, problem, sep="/")
 fileSteadyStateNSGAII<-paste(fileSteadyStateNSGAII, indicator, sep="/")
 SteadyStateNSGAII<-scan(fileSteadyStateNSGAII)
 
+fileMOEAD<-paste(resultDirectory, "MOEAD", sep="/")
+fileMOEAD<-paste(fileMOEAD, problem, sep="/")
+fileMOEAD<-paste(fileMOEAD, indicator, sep="/")
+MOEAD<-scan(fileMOEAD)
+
 filePAES<-paste(resultDirectory, "PAES", sep="/")
 filePAES<-paste(filePAES, problem, sep="/")
 filePAES<-paste(filePAES, indicator, sep="/")
 PAES<-scan(filePAES)
 
-algs<-c("SteadyStateNSGAII","PAES")
-boxplot(SteadyStateNSGAII,PAES,names=algs, notch = FALSE)
+algs<-c("SteadyStateNSGAII","MOEAD","PAES")
+boxplot(SteadyStateNSGAII,MOEAD,PAES,names=algs, notch = FALSE)
 titulo <-paste(indicator, problem, sep=":")
 title(main=titulo)
 }

@@ -140,15 +140,7 @@ public class NSGAIIStudy  {
 
 
       for (int i = 0; i < problemList.size(); i++) {
-//        Algorithm<List<DoubleSolution>> algorithm = new MOEADBuilder(problemList.get(i),MOEAD)
-//                .setMaxEvaluations(5000)
-//                .setResultPopulationSize(20)
-//                .setCrossover(new DifferentialEvolutionCrossover())
-//                .build();
-//        algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "MOEAD", problemList.get(i), run));
-
-
-        Algorithm<List<DoubleSolution>> algorithm = new MOEADBuilder(problemList.get(i), MOEADBuilder.Variant.MOEAD)
+        Algorithm<List<DoubleSolution>> algorithm = new MOEADBuilder(problemList.get(i), MOEADBuilder.Variant.ConstraintMOEAD)
                 .setCrossover(new DifferentialEvolutionCrossover(1.0, 0.5, "rand/1/bin"))
                 .setMutation(new PolynomialMutation(1.0 / problemList.get(i).getNumberOfVariables(), 10.0))
                 .setMaxEvaluations(150000)
@@ -160,6 +152,7 @@ public class NSGAIIStudy  {
                 .setFunctionType(AbstractMOEAD.FunctionType.TCHE)
                 .setDataDirectory("MOEAD_Weights")
                 .build() ;
+        algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "MOEAD", problemList.get(i), run));
 
       }
 

@@ -74,16 +74,16 @@ latexTail <- function() {
 ### START OF SCRIPT 
 # Constants
 problemList <-c("Binh2", "Srinivas", "Osyczka2", "Tanaka", "TwoBarTruss", "WeldedBeam", "Binh2Penalty", "SrinivasPenalty", "Osyczka2Penalty", "TanakaPenalty", "TwoBarTrussPenalty", "WeldedBeamPenalty") 
-algorithmList <-c("SteadyStateNSGAII", "PAES") 
-tabularString <-c("lc") 
-latexTableFirstLine <-c("\\hline  & PAES\\\\ ") 
+algorithmList <-c("SteadyStateNSGAII", "MOEAD", "PAES") 
+tabularString <-c("lcc") 
+latexTableFirstLine <-c("\\hline  & MOEAD & PAES\\\\ ") 
 indicator<-"SPREAD"
 
  # Step 1.  Writes the latex header
 latexHeader()
-tabularString <-c("| l | p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm } | ") 
+tabularString <-c("| l | p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm } | p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm } | ") 
 
-latexTableFirstLine <-c("\\hline \\multicolumn{1}{|c|}{} & \\multicolumn{12}{c|}{PAES} \\\\") 
+latexTableFirstLine <-c("\\hline \\multicolumn{1}{|c|}{} & \\multicolumn{12}{c|}{MOEAD} & \\multicolumn{12}{c|}{PAES} \\\\") 
 
 # Step 3. Problem loop 
 latexTableHeader("Binh2 Srinivas Osyczka2 Tanaka TwoBarTruss WeldedBeam Binh2Penalty SrinivasPenalty Osyczka2Penalty TanakaPenalty TwoBarTrussPenalty WeldedBeamPenalty ", tabularString, latexTableFirstLine)
