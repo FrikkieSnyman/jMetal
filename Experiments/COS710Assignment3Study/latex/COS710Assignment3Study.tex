@@ -1,0 +1,311 @@
+\documentclass{article}
+\title{COS710Assignment3Study}
+\usepackage{colortbl}
+\usepackage[table*]{xcolor}
+\xdefinecolor{gray95}{gray}{0.65}
+\xdefinecolor{gray25}{gray}{0.8}
+\author{A.J. Nebro}
+\begin{document}
+\maketitle
+\section{Tables}
+
+\begin{table}
+\caption{EP. Mean and Standard Deviation}
+\label{table: EP}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  7.02e-01_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  8.77e-01_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  6.87e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  9.55e-01_{ 0.0e+00}$ & \cellcolor{gray95}$  1.01e-04_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  2.83e-01_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.86e+00_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.62e-01_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  7.42e-01_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  5.47e-01_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  9.54e-01_{ 0.0e+00}$ & \cellcolor{gray95}$  5.64e-04_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  2.39e-01_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  3.37e-02_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{EP. Median and Interquartile Range}
+\label{table: EP}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  7.02e-01_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  8.77e-01_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  6.87e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  9.55e-01_{ 0.0e+00}$ & \cellcolor{gray95}$  1.01e-04_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  2.83e-01_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.86e+00_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.62e-01_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  7.42e-01_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  5.47e-01_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  9.54e-01_{ 0.0e+00}$ & \cellcolor{gray95}$  5.64e-04_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  2.39e-01_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  3.37e-02_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{SPREAD. Mean and Standard Deviation}
+\label{table: SPREAD}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  1.38e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  7.27e-02_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  7.68e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  1.77e+00_{ 0.0e+00}$ & \cellcolor{gray95}$  1.00e+00_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  1.69e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  4.46e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  1.39e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  6.90e-02_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  2.64e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  1.80e+00_{ 0.0e+00}$ & \cellcolor{gray95}$  1.00e+00_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  1.57e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  7.92e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{SPREAD. Median and Interquartile Range}
+\label{table: SPREAD}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  1.38e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  7.27e-02_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  7.68e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  1.77e+00_{ 0.0e+00}$ & \cellcolor{gray95}$  1.00e+00_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  1.69e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  4.46e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  1.39e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  6.90e-02_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  2.64e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  1.80e+00_{ 0.0e+00}$ & \cellcolor{gray95}$  1.00e+00_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  1.57e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  7.92e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.00e+00_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{GD. Mean and Standard Deviation}
+\label{table: GD}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  3.40e-02_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.67e-01_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  0.00e+00_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  6.93e-02_{ 0.0e+00}$ & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.16e-02_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  8.65e-01_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.64e-01_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  2.16e-01_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.90e-01_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  5.49e-02_{ 0.0e+00}$ & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.62e-02_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  0.00e+00_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{GD. Median and Interquartile Range}
+\label{table: GD}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  3.40e-02_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.67e-01_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  0.00e+00_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  6.93e-02_{ 0.0e+00}$ & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.16e-02_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  8.65e-01_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.64e-01_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  2.16e-01_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.90e-01_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  5.49e-02_{ 0.0e+00}$ & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.62e-02_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  0.00e+00_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{HV. Mean and Standard Deviation}
+\label{table: HV}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  8.12e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  2.78e-01_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  5.44e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  8.41e-02_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  2.70e-01_{ 0.0e+00}$ & $  0.00e+00_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  1.93e-02_{ 0.0e+00}$ & \cellcolor{gray95}$  1.00e+00_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  8.56e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  5.93e-01_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  9.27e-01_{ 0.0e+00}$ & $  0.00e+00_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  8.12e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  3.67e-01_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  5.43e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.26e-01_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  7.07e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  2.17e-01_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  1.89e-02_{ 0.0e+00}$ & \cellcolor{gray95}$  9.99e-01_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  8.55e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  5.99e-01_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  9.56e-01_{ 0.0e+00}$ & $  0.00e+00_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{HV. Median and Interquartile Range}
+\label{table: HV}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  8.12e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  2.78e-01_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  5.44e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  8.41e-02_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  2.70e-01_{ 0.0e+00}$ & $  0.00e+00_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  1.93e-02_{ 0.0e+00}$ & \cellcolor{gray95}$  1.00e+00_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  8.56e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  5.93e-01_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  9.27e-01_{ 0.0e+00}$ & $  0.00e+00_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  8.12e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  3.67e-01_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  5.43e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  1.26e-01_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  7.07e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  2.17e-01_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  1.89e-02_{ 0.0e+00}$ & \cellcolor{gray95}$  9.99e-01_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  8.55e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  5.99e-01_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  9.56e-01_{ 0.0e+00}$ & $  0.00e+00_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{IGD. Mean and Standard Deviation}
+\label{table: IGD}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  6.21e-02_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  5.99e-02_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  8.69e-03_{ 0.0e+00}$ & \cellcolor{gray25}$  1.13e-01_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray95}$  3.30e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  4.71e-01_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.50e-02_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.71e-01_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.42e-02_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  5.00e-02_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.65e-02_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray95}$  2.48e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  4.33e-01_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.51e-02_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  8.80e-03_{ 0.0e+00}$ & \cellcolor{gray25}$  1.06e-01_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{IGD. Median and Interquartile Range}
+\label{table: IGD}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  6.21e-02_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  5.99e-02_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  8.69e-03_{ 0.0e+00}$ & \cellcolor{gray25}$  1.13e-01_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray95}$  3.30e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  4.71e-01_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.50e-02_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.71e-01_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.42e-02_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  5.00e-02_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.65e-02_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray95}$  2.48e-01_{ 0.0e+00}$ & \cellcolor{gray25}$  4.33e-01_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.51e-02_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  8.80e-03_{ 0.0e+00}$ & \cellcolor{gray25}$  1.06e-01_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{IGD+. Mean and Standard Deviation}
+\label{table: IGD+}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  3.90e-01_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.52e-01_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  6.80e-03_{ 0.0e+00}$ & \cellcolor{gray25}$  7.88e-01_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  3.30e-01_{ 0.0e+00}$ & \cellcolor{gray95}$  3.36e-05_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.59e-01_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.64e+00_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  3.06e-01_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.25e-01_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  3.95e-01_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  2.48e-01_{ 0.0e+00}$ & \cellcolor{gray95}$  2.88e-04_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.54e-01_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  3.37e-04_{ 0.0e+00}$ & \cellcolor{gray25}$  9.56e-01_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+
+\begin{table}
+\caption{IGD+. Median and Interquartile Range}
+\label{table: IGD+}
+\centering
+\begin{scriptsize}
+\begin{tabular}{lll}
+\hline & SteadyStateNSGAII &  PAES\\
+\hline 
+Binh2 & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  3.90e-01_{ 0.0e+00}$ \\
+Srinivas & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.52e-01_{ 0.0e+00}$ \\
+Osyczka2 & \cellcolor{gray95}$  6.80e-03_{ 0.0e+00}$ & \cellcolor{gray25}$  7.88e-01_{ 0.0e+00}$ \\
+Tanaka & \cellcolor{gray25}$  3.30e-01_{ 0.0e+00}$ & \cellcolor{gray95}$  3.36e-05_{ 0.0e+00}$ \\
+TwoBarTruss & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.59e-01_{ 0.0e+00}$ \\
+WeldedBeam & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.64e+00_{ 0.0e+00}$ \\
+Binh2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  3.06e-01_{ 0.0e+00}$ \\
+SrinivasPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  4.25e-01_{ 0.0e+00}$ \\
+Osyczka2Penalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  3.95e-01_{ 0.0e+00}$ \\
+TanakaPenalty & \cellcolor{gray25}$  2.48e-01_{ 0.0e+00}$ & \cellcolor{gray95}$  2.88e-04_{ 0.0e+00}$ \\
+TwoBarTrussPenalty & \cellcolor{gray95}$  0.00e+00_{ 0.0e+00}$ & \cellcolor{gray25}$  1.54e-01_{ 0.0e+00}$ \\
+WeldedBeamPenalty & \cellcolor{gray95}$  3.37e-04_{ 0.0e+00}$ & \cellcolor{gray25}$  9.56e-01_{ 0.0e+00}$ \\
+\hline
+\end{tabular}
+\end{scriptsize}
+\end{table}
+\end{document}
