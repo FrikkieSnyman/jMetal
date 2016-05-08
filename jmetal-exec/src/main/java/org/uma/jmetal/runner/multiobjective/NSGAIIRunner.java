@@ -79,12 +79,12 @@ public class NSGAIIRunner extends AbstractAlgorithmRunner {
 
     selection = new BinaryTournamentSelection<DoubleSolution>(new RankingAndCrowdingDistanceComparator<DoubleSolution>());
 
-    algorithm = new NSGAIIBuilder<DoubleSolution>(problem, crossover, mutation)
-        .setSelectionOperator(selection)
-        .setMaxEvaluations(25000)
-        .setPopulationSize(100)
-        .build() ;
-
+//    algorithm = new NSGAIIBuilder<DoubleSolution>(problem, crossover, mutation)
+//        .setSelectionOperator(selection)
+//        .setMaxEvaluations(25000)
+//        .setPopulationSize(100)
+//        .build() ;
+    algorithm = new CABuilder<>((DoubleProblem) problem, 2500, 100).build();
 
     AlgorithmRunner algorithmRunner = new AlgorithmRunner.Executor(algorithm)
             .execute() ;

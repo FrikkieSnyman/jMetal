@@ -53,7 +53,7 @@ import java.util.stream.IntStream;
 public class CA extends AbstractEvolutionStrategy<DoubleSolution, List<DoubleSolution>> {
 
 
-    private final Comparator<DoubleSolution> comparator = new DominanceComparator<>(3);
+    private final Comparator<DoubleSolution> comparator = new RankingAndCrowdingDistanceComparator<>();
     protected final SolutionListEvaluator<DoubleSolution> evaluator = new SequentialSolutionListEvaluator<>();
     private int maxEvaluations;
     private int evaluations = 0;
@@ -215,9 +215,9 @@ public class CA extends AbstractEvolutionStrategy<DoubleSolution, List<DoubleSol
     @Override
     public void run() {
         super.run();
-        this.belief = null;
+//        this.belief = null;
         //this.random = null;
-        System.gc();
+//        System.gc();
     }
 
     @Override

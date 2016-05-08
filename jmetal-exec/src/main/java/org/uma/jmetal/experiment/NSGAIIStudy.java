@@ -14,6 +14,7 @@
 package org.uma.jmetal.experiment;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.multiobjective.ca.CABuilder;
 import org.uma.jmetal.algorithm.multiobjective.moead.AbstractMOEAD;
 import org.uma.jmetal.algorithm.multiobjective.moead.MOEADBuilder;
 import org.uma.jmetal.algorithm.multiobjective.nsgaii.NSGAIIBuilder;
@@ -21,6 +22,7 @@ import org.uma.jmetal.algorithm.multiobjective.paes.PAESBuilder;
 import org.uma.jmetal.operator.impl.crossover.DifferentialEvolutionCrossover;
 import org.uma.jmetal.operator.impl.crossover.SBXCrossover;
 import org.uma.jmetal.operator.impl.mutation.PolynomialMutation;
+import org.uma.jmetal.problem.DoubleProblem;
 import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.problem.multiobjective.*;
 import org.uma.jmetal.problem.multiobjective.penaltyFunctions.*;
@@ -61,7 +63,7 @@ import static org.uma.jmetal.algorithm.multiobjective.moead.MOEADBuilder.Variant
  * @author Antonio J. Nebro <antonio@lcc.uma.es>
  */
 public class NSGAIIStudy  {
-  private static final int INDEPENDENT_RUNS =1 ;
+  private static final int INDEPENDENT_RUNS = 5;
 
   public static void main(String[] args) throws IOException {
 //    if (args.length != 1) {
@@ -85,7 +87,19 @@ public class NSGAIIStudy  {
 
     List<TaggedAlgorithm<List<DoubleSolution>>> algorithmList = configureAlgorithmList(problemList, INDEPENDENT_RUNS) ;
 
-    List<String> referenceFrontFileNames = Arrays.asList("Srinivas.pf", "Osyczka2.pf", "Tanaka.pf","TwoBarTruss.pf","WeldedBeam.pf","Srinivas.pf", "Osyczka2.pf", "Tanaka.pf","TwoBarTruss.pf","WeldedBeam.pf") ;
+    List<String> referenceFrontFileNames = Arrays.asList(
+            "Binh2.pf",
+            "Srinivas.pf",
+            "Osyczka2.pf",
+            "Tanaka.pf",
+            "TwoBarTruss.pf",
+            "WeldedBeam.pf",
+            "Binh2.pf",
+            "Srinivas.pf",
+            "Osyczka2.pf",
+            "Tanaka.pf",
+            "TwoBarTruss.pf",
+            "WeldedBeam.pf") ;
 
     Experiment<DoubleSolution, List<DoubleSolution>> experiment =
         new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>("COS710Assignment3Study")
@@ -105,7 +119,8 @@ public class NSGAIIStudy  {
             .build();
 
     new ExecuteAlgorithms<>(experiment).run();
-    new GenerateReferenceParetoFront(experiment).run();
+//    new GenerateReferenceParetoFront(experiment).run();
+    new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(experiment).run();
     new ComputeQualityIndicators<>(experiment).run() ;
     new GenerateLatexTablesWithStatistics(experiment).run() ;
     new GenerateWilcoxonTestTablesWithR<>(experiment).run() ;
@@ -166,24 +181,10 @@ public class NSGAIIStudy  {
         algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "PAES", problemList.get(i), run));
       }
 
-//
-//      for (int i = 0; i < problemList.size(); i++) {
-//        Algorithm<List<DoubleSolution>> algorithm = new NSGAIIBuilder<>(problemList.get(i), new SBXCrossover(1.0, 40.0),
-//            new PolynomialMutation(1.0 / problemList.get(i).getNumberOfVariables(), 40.0))
-//            .setMaxEvaluations(25000)
-//            .setPopulationSize(100)
-//            .build();
-//        algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "NSGAIIc", problemList.get(i), run));
-//      }
-//
-//      for (int i = 0; i < problemList.size(); i++) {
-//        Algorithm<List<DoubleSolution>> algorithm = new NSGAIIBuilder<>(problemList.get(i), new SBXCrossover(1.0, 80.0),
-//            new PolynomialMutation(1.0 / problemList.get(i).getNumberOfVariables(), 80.0))
-//            .setMaxEvaluations(25000)
-//            .setPopulationSize(100)
-//            .build();
-//        algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "NSGAIId", problemList.get(i), run));
-//      }
+      for (int i = 0; i < problemList.size(); i++) {
+        Algorithm<List<DoubleSolution>> algorithm = new CABuilder<>((DoubleProblem) problemList.get(i), 2500, 100).build();
+        algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "CA", problemList.get(i), run));
+      }
     }
     return algorithms ;
   }

@@ -18,6 +18,7 @@ import org.uma.jmetal.algorithm.multiobjective.nsgaii.NSGAIIBuilder;
 import org.uma.jmetal.operator.impl.crossover.SBXCrossover;
 import org.uma.jmetal.operator.impl.mutation.PolynomialMutation;
 import org.uma.jmetal.problem.Problem;
+import org.uma.jmetal.problem.multiobjective.Tanaka;
 import org.uma.jmetal.problem.multiobjective.zdt.*;
 import org.uma.jmetal.qualityindicator.impl.*;
 import org.uma.jmetal.qualityindicator.impl.hypervolume.PISAHypervolume;
@@ -58,14 +59,17 @@ public class NSGAIIStudy2 {
   private static final int INDEPENDENT_RUNS = 25 ;
 
   public static void main(String[] args) throws IOException {
-    if (args.length != 2) {
-      throw new JMetalException("Needed arguments: experimentBaseDirectory referenceFrontDirectory") ;
-    }
-    String experimentBaseDirectory = args[0] ;
-    String referenceFrontDirectory = args[1] ;
+//    if (args.length != 2) {
+//      throw new JMetalException("Needed arguments: experimentBaseDirectory referenceFrontDirectory") ;
+//    }
+//    String experimentBaseDirectory = args[0] ;
+    String referenceFrontDirectory = "/pareto_fronts" ;
+
+    String experimentBaseDirectory = "./Experiments" ;
+
 
     List<Problem<DoubleSolution>> problemList = Arrays.<Problem<DoubleSolution>>asList(new ZDT1(), new ZDT2(),
-        new ZDT3(), new ZDT4(), new ZDT6()) ;
+        new ZDT3(), new ZDT4(), new ZDT6(), new Tanaka()) ;
 
     List<TaggedAlgorithm<List<DoubleSolution>>> algorithmList = configureAlgorithmList(problemList, INDEPENDENT_RUNS) ;
 

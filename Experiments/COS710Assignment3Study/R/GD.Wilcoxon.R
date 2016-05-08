@@ -74,23 +74,23 @@ latexTail <- function() {
 ### START OF SCRIPT 
 # Constants
 problemList <-c("Binh2", "Srinivas", "Osyczka2", "Tanaka", "TwoBarTruss", "WeldedBeam", "Binh2Penalty", "SrinivasPenalty", "Osyczka2Penalty", "TanakaPenalty", "TwoBarTrussPenalty", "WeldedBeamPenalty") 
-algorithmList <-c("SteadyStateNSGAII", "MOEAD", "PAES") 
-tabularString <-c("lcc") 
-latexTableFirstLine <-c("\\hline  & MOEAD & PAES\\\\ ") 
+algorithmList <-c("SteadyStateNSGAII", "MOEAD", "PAES", "CA") 
+tabularString <-c("lccc") 
+latexTableFirstLine <-c("\\hline  & MOEAD & PAES & CA\\\\ ") 
 indicator<-"GD"
 
  # Step 1.  Writes the latex header
 latexHeader()
-tabularString <-c("| l | p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm } | p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm } | ") 
+tabularString <-c("| l | p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm } | p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm } | p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm }p{0.15cm } | ") 
 
-latexTableFirstLine <-c("\\hline \\multicolumn{1}{|c|}{} & \\multicolumn{12}{c|}{MOEAD} & \\multicolumn{12}{c|}{PAES} \\\\") 
+latexTableFirstLine <-c("\\hline \\multicolumn{1}{|c|}{} & \\multicolumn{12}{c|}{MOEAD} & \\multicolumn{12}{c|}{PAES} & \\multicolumn{12}{c|}{CA} \\\\") 
 
 # Step 3. Problem loop 
 latexTableHeader("Binh2 Srinivas Osyczka2 Tanaka TwoBarTruss WeldedBeam Binh2Penalty SrinivasPenalty Osyczka2Penalty TanakaPenalty TwoBarTrussPenalty WeldedBeamPenalty ", tabularString, latexTableFirstLine)
 
 indx = 0
 for (i in algorithmList) {
-  if (i != "PAES") {
+  if (i != "CA") {
     write(i , "./Experiments/COS710Assignment3Study/R/GD.Wilcoxon.tex", append=TRUE)
     write(" & ", "./Experiments/COS710Assignment3Study/R/GD.Wilcoxon.tex", append=TRUE)
 
@@ -105,7 +105,7 @@ for (i in algorithmList) {
             write("  ", "./Experiments/COS710Assignment3Study/R/GD.Wilcoxon.tex", append=TRUE)
           } 
           if (problem == "WeldedBeamPenalty") {
-            if (j == "PAES") {
+            if (j == "CA") {
               write(" \\\\ ", "./Experiments/COS710Assignment3Study/R/GD.Wilcoxon.tex", append=TRUE)
             } 
             else {
