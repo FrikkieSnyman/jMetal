@@ -2,6 +2,7 @@ package org.uma.jmetal.experiment;
 
 import org.uma.jmetal.algorithm.Algorithm;
 import org.uma.jmetal.algorithm.multiobjective.ca.CABuilder;
+import org.uma.jmetal.algorithm.multiobjective.moead.AbstractMOEAD;
 import org.uma.jmetal.algorithm.multiobjective.nsgaii.NSGAIIBuilder;
 import org.uma.jmetal.algorithm.multiobjective.paes.PAESBuilder;
 import org.uma.jmetal.algorithm.multiobjective.moead.MOEADBuilder;
@@ -108,11 +109,18 @@ public class Mainstudy {
 
 
             for (int i = 0; i < problemList.size(); i++) {
-                Algorithm<List<DoubleSolution>> algorithm = new MOEADBuilder(problemList.get(i),MOEAD)
-                        .setMaxEvaluations(5000)
-                        .setResultPopulationSize(20)
-                        .setCrossover(new DifferentialEvolutionCrossover())
-                        .build();
+                Algorithm<List<DoubleSolution>> algorithm = new MOEADBuilder(problemList.get(i), MOEADBuilder.Variant.ConstraintMOEAD)
+                        .setCrossover(new DifferentialEvolutionCrossover(1.0, 0.5, "rand/1/bin"))
+                        .setMutation(new PolynomialMutation(1.0 / problemList.get(i).getNumberOfVariables(), 10.0))
+                        .setMaxEvaluations(150000)
+                        .setPopulationSize(300)
+                        .setResultPopulationSize(300)
+                        .setNeighborhoodSelectionProbability(0.9)
+                        .setMaximumNumberOfReplacedSolutions(2)
+                        .setNeighborSize(20)
+                        .setFunctionType(AbstractMOEAD.FunctionType.TCHE)
+                        .setDataDirectory("MOEAD_Weights")
+                        .build() ;
                 algorithms.add(new TaggedAlgorithm<List<DoubleSolution>>(algorithm, "MOEAD", problemList.get(i), run));
             }
 
